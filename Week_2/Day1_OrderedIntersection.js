@@ -35,7 +35,7 @@ const expected3 = [];
 //loop through both, filter out any duplicated values, and create a new list
 // function orderedIntersection(sortedA, sortedB) { 
 //     let mergedArray = [];
-    
+
 //     for(let i = 0; i < sortedA.length; i++) {
 //         for(let j = 0; j < sortedB.length; j++) {
 //             if(sortedA[i] === sortedB[j]) {
@@ -64,25 +64,24 @@ function orderedIntersection(sortedA, sortedB) {
     let idxA = 0;
     let idxB = 0;
 
-    const result = [];
+    const intersection = [];
 
-    while(idxA < sortedA.length && idxB < sortedB.length) {
-        if(sortedA[idxA] === sortedB[idxB]) {
-            if(result[result.length - 1] === sortedA[idxA]) {
-                result.push(sortedA[idxA]);
+    while (idxA < sortedA.length && idxB < sortedB.length) {
+        if (sortedA[idxA] === sortedB[idxB]) {
+            if (intersection[intersection.length - 1] !== sortedA[idxA]) {
+                // add it only if the last num added isn't the same num
+                intersection.push(sortedA[idxA]);
             }
             idxA++;
             idxB++;
-        }
-        else if(sortedA[idxA] < sortedB[idxB]) {
+        } else if (sortedA[idxA] < sortedB[idxB]) {
             idxA++;
-        }
-        else {
+        } else {
             idxB++;
         }
     }
-    return result;
+    return intersection;
 }
-console.log(orderedIntersection(numsA1,numsB1));
-console.log(orderedIntersection(numsA2,numsB2));
-console.log(orderedIntersection(numsA3,numsB3));
+console.log(orderedIntersection(numsA1, numsB1));
+console.log(orderedIntersection(numsA2, numsB2));
+console.log(orderedIntersection(numsA3, numsB3));
