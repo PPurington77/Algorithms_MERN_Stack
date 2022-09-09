@@ -49,6 +49,20 @@ const expected5 = [1, 2, 3];
  *    i.e., if the element is in one array and NOT the other, it should be
  *    included in the return.
  */
-function symmetricDifferences(numsA, numsB) {
-    
-}
+  function symmetricDifferences(numsA, numsB) {
+    const disjunctiveUnion = [];
+  
+    for (const n of numsA) {
+      if (numsB.includes(n) === false && disjunctiveUnion.includes(n) === false) {
+        disjunctiveUnion.push(n);
+      }
+    }
+  
+    for (const n of numsB) {
+      if (numsA.includes(n) === false && disjunctiveUnion.includes(n) === false) {
+        disjunctiveUnion.push(n);
+      }
+    }
+    return disjunctiveUnion;
+  }
+
