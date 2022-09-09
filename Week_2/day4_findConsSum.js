@@ -87,8 +87,6 @@ function findConsqSums(nums, targetSum) {
     let indexCounter = 0;
 
     while(startingIndex < nums.length) {
-        if(nums[startingIndex] > targetSum) continue;
-        
 
         if(currentSum < targetSum) {
             tempContainer.push(nums[startingIndex]);
@@ -100,17 +98,17 @@ function findConsqSums(nums, targetSum) {
             answerContainer.push(tempContainer);
             currentSum = 0;
             tempContainer = [];
-            startingIndex = nums.length - indexCounter;
+            startingIndex = startingIndex - indexCounter + 1;
             indexCounter = 0;
         }
         else {
             currentSum = 0;
             tempContainer = [];
-            startingIndex = nums.length - indexCounter;
+            startingIndex = startingIndex - indexCounter + 1;
             indexCounter = 0;
         }
     }
     return answerContainer;
 }
 
-console.log(findConsqSums(nums1, sum1));
+console.log(findConsqSums(nums4, sum4));
