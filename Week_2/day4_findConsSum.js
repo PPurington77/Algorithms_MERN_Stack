@@ -104,7 +104,7 @@ function findConsqSums(nums, targetSum) {
         else {
             currentSum = 0;
             tempContainer = [];
-            startingIndex = startingIndex - indexCounter + 1;
+            startingIndex = startingIndex - indexCounter + 2;
             indexCounter = 0;
         }
     }
