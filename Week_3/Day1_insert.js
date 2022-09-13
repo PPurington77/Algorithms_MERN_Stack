@@ -57,4 +57,15 @@ function insertFunctional(tableName, columnValuePairs) {
     return `INSERT INTO (${ tableName }) (${ keyStrings }) VALUES (${ valueStings })`;
 }
 
-console.log(insertFunctional(table, insertData1));
+//answer from class below
+function insertFunctional(tableName, columnValuePairs) {
+  const columns = Object.keys(columnValuePairs).join(', ');
+
+  const values = Object.values(columnValuePairs)
+    .map((val) => (typeof val === 'string' ? `'${val}'` : val))
+    .join(', ');
+
+  return `INSERT INTO ${tableName} (${columns}) VALUES (${values});`;
+}
+
+console.log(insertFunctional(table, insertData2));
