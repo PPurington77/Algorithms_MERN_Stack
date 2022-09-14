@@ -104,4 +104,13 @@ console.log(coronaVirusAtRisk(people))
  * - Time O(?).
  * - Space O(?).
  */
-function coronaVirusAtRiskFunctional(persons) {}
+ const functionalCoronaVirusAtRisk = (persons) =>
+ persons
+   .filter(
+     (person) =>
+       person.isSocialDistancing === false &&
+       person.friends.findIndex(
+         (friend) => friend.isSocialDistancing === false && friend.hasCovid
+       ) > -1
+   )
+   .map((person) => `${person.firstName} ${person.lastName}`);
