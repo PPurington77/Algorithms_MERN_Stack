@@ -88,7 +88,6 @@ function coronaVirusAtRisk(persons) {
     let returnArray = [];
     for(const person of persons) {
         if(person.isSocialDistancing) continue;
-        let atRisk = false;
         for(const friend of person.friends) {
             if(friend.hasCovid && !friend.isSocialDistancing) {
                 returnArray.push(person);
