@@ -62,15 +62,9 @@ function canBuildS1FromS2(s1, s2) {
     }
 
     for(let key in hashMap2) {
-        if(hashMap1.hasOwnProperty(key)) {
-            if(hashMap2[key] >= hashMap1[key]) {
-                continue;
-            }
-            else {
-                return false;
-            }
+        if(!hashMap1.hasOwnProperty(key) || !hashMap2[key] >= hashMap1[key]) {
+            return false;
         }
-        else return false;
     }
     return true;
 }
